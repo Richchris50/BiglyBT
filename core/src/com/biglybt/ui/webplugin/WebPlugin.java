@@ -1809,8 +1809,9 @@ WebPlugin
 										
 									}else{
 										
-										if ( referrer != null && verifyReferrer()){
-											
+										// Android Hack
+										if ( referrer != null && verifyReferrer() && !referrer.startsWith("http://search.vuze.com/") ){
+
 											result = false;
 											
 											try{
