@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) Bigly Software, Inc, All Rights Reserved.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.biglybt.core.Core;
@@ -102,7 +101,7 @@ AllTrackersManagerImpl
 	
 	private volatile boolean stopping;
 	
-	private Map<String,AllTrackersTrackerImpl>		host_map = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<String,AllTrackersTrackerImpl>		host_map = new ConcurrentHashMap<>();
 	
 	private ConcurrentLinkedDeque<Object[]>			update_queue = new ConcurrentLinkedDeque<>();
 	
