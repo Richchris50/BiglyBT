@@ -1718,8 +1718,10 @@ public abstract class TableViewImpl<DATASOURCETYPE>
 				if (hasSortValueChanged) {
 					lLastSortedOn = SystemTime.getCurrentTime();
 					if (sortColumns.size() == 1) {
+						//noinspection newapi java-support-table says it's desugared
 						sortedRows.sort(sortColumns.get(0));
 					} else {
+						//noinspection newapi java-support-table says it's desugared
 						sortedRows.sort((o1, o2) -> {
 							for (TableColumnCore sortColumn : sortColumns) {
 								int compare = sortColumn.compare(o1, o2);
@@ -1742,6 +1744,7 @@ public abstract class TableViewImpl<DATASOURCETYPE>
 					if (DEBUG_SORTER) {
 						long lTimeDiff = (System.currentTimeMillis() - lTimeStart);
 						if (lTimeDiff >= 0) {
+							//noinspection newapi java-support-table says Collection.stream(), Stream.map(..), Stream.collect(..), Collectors is desugared
 							debug("--- Build & Sort "
 									+ sortColumns.stream().map(m -> m.getName()).collect(
 											Collectors.joining(", ", "{", "}"))
