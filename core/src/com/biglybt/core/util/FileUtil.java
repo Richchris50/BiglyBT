@@ -1445,6 +1445,9 @@ public class FileUtil {
     	File 	from_file, 
     	File 	to_file ) 
     {
+			// Android: FileTime is minSDK 26
+			return copyFile(from_file, to_file);
+/* >>> Android
 		FileTime from_last_modified = null;
 		FileTime from_last_access	= null;
 		FileTime from_created		= null;
@@ -1487,6 +1490,7 @@ public class FileUtil {
     		
     		return( false );
     	}
+<<< Android */
     }
     
     public static boolean 
@@ -3534,8 +3538,9 @@ public class FileUtil {
 	}
 
 		// when a file is on an unavailable network share (for example) then this can trash the UI by hanging the SWT thread.
-	
-	private static Set<Path>		bad_roots = new HashSet<>();
+
+	// Android minSDK 26
+	//private static Set<Path>		bad_roots = new HashSet<>();
 	
 	interface
 	FileOpWithTimeout<T>
@@ -3589,7 +3594,8 @@ public class FileUtil {
 		IOException				def_error )
 	
 		throws IOException
-	{		
+	{
+		/* Android: minSDK 26
 		synchronized( bad_roots ){
 	
 			if ( !bad_roots.isEmpty()){
@@ -3609,6 +3615,7 @@ public class FileUtil {
 				}
 			}
 		}
+		 */
 		
 		long	start = SystemTime.getMonotonousTime();
 
@@ -3616,9 +3623,10 @@ public class FileUtil {
 			return( fo.run());
 			
 		}finally{
-			
+
+/* >>> Android: minSDK 26
 			long	elapsed = SystemTime.getMonotonousTime() - start;
-			
+
 			if ( elapsed > 2500 ){
 				
 				Path root_path = file.toPath().getRoot();
@@ -3694,6 +3702,7 @@ public class FileUtil {
 					}
 				}
 			}
+<<< Android: minSDK 26 */
 		}
 	}
 	
