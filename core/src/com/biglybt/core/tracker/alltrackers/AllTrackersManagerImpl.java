@@ -64,6 +64,7 @@ import com.biglybt.core.util.average.AverageFactory;
 import com.biglybt.core.util.average.MovingImmediateAverage;
 import com.biglybt.pif.PluginInterface;
 import com.biglybt.pif.logging.LoggerChannel;
+import com.biglybt.util.ConcurrentLinkedDeque;
 import com.biglybt.util.MapUtils;
 
 public class 
