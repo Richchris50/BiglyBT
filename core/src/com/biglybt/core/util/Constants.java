@@ -297,7 +297,7 @@ Constants
 					
 					isWindows11OrHigher = false;
 				}
-				*/
+				* /
 				
 				if ( isWindowsVista ){
 
@@ -494,6 +494,7 @@ Constants
 	public static final boolean isJava8OrHigher = false;
 	public static final boolean isJava9OrHigher = false;
 	public static final boolean isJava10OrHigher = false;
+	public static final boolean isJava11OrHigher = false;
 	public static final boolean isJava12OrHigher = false;
 
 	public static final String	FILE_WILDCARD = isWindows?"*.*":"*";
